@@ -3,7 +3,7 @@
 export DH_VERBOSE=1
 
 DISTRIBUTION = $(shell lsb_release -sc)
-VERSION = 0.1.0
+VERSION = $(shell dpkg-parsechangelog -SVersion)
 PACKAGEVERSION = $(VERSION)-0~$(DISTRIBUTION)1
 
 %:
