@@ -2,5 +2,12 @@
 
 export DH_VERBOSE=1
 
+DISTRIBUTION = $(shell lsb_release -sc)
+VERSION = 0.1.0
+PACKAGEVERSION = $(VERSION)-0~$(DISTRIBUTION)1
+
 %:
 	dh $@
+
+override_dh_gencontrol:
+	dh_gencontrol -- -v$(PACKAGEVERSION)
